@@ -1,0 +1,13 @@
+CREATE DATABASE ski;
+
+USE ski;
+
+CREATE TABLE user(
+    id INT AUTO_INCEMENT NOU NULL PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    lastname VARCHAR(300) NOT NULL,
+    location VARCHAR(300) NOT NULL,
+    age VARCHAR(300) NOT NULL,
+    distance VARCHAR(300) NOT NULL,
+    edit BOOLEAN NOT NULL,
+);
