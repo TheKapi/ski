@@ -1,0 +1,144 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3em;
+  margin-top: 4em;
+
+  &-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+
+    input {
+      font-family: "Montserrat", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1em 1.2em;
+      border: none;
+      background: #f1f8ff;
+      outline: none;
+
+      &:focus {
+        outline-style: solid;
+        outline-width: 2px;
+      }
+    }
+
+    ::placeholder {
+      color: rgb(59, 59, 59);
+    }
+
+    &-button {
+      margin-top: 1em;
+      cursor: pointer;
+      padding: 1em 2.5em;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      background: #55efc4;
+      border: none;
+    }
+  }
+
+  &-display {
+    min-height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    table {
+      font-family: "Montserrat", sans-serif;
+      border-spacing: 0;
+      border-collapse: collapse;
+
+      th {
+        color: #000;
+        font-weight: 600;
+        background: #ebebeb;
+        padding: 1em;
+        width: 200px;
+      }
+
+      tr {
+        td {
+          text-align: center;
+          font-weight: 400;
+
+          div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.2em 0;
+          }
+
+          input {
+            font-family: "Montserrat", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5em 1.2em;
+            border: none;
+            background: #f1f8ff;
+            outline: none;
+
+            &:focus {
+              outline-style: solid;
+              outline-width: 2px;
+            }
+          }
+
+          .buttons {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            gap: 0.8em;
+
+            .edit {
+              cursor: pointer;
+              font-family: "Montserrat", sans-serif;
+              font-weight: 600;
+              border: none;
+              padding: 0.4em 1em;
+              background: #fbc531;
+            }
+
+            .delete {
+              cursor: pointer;
+              font-family: "Montserrat", sans-serif;
+              font-weight: 600;
+              border: none;
+              padding: 0.4em 1em;
+              background: #e17055;
+            }
+
+            .save {
+              cursor: pointer;
+              font-family: "Montserrat", sans-serif;
+              font-weight: 600;
+              border: none;
+              padding: 0.4em 1em;
+              background: #55efc4;
+            }
+
+            .cancel {
+              cursor: pointer;
+              font-family: "Montserrat", sans-serif;
+              font-weight: 600;
+              border: none;
+              padding: 0.4em 1em;
+              background: #c3c3c3;
+            }
+          }
+        }
+      }
+    }
+  }
+}

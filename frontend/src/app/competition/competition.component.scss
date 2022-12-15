@@ -1,0 +1,43 @@
+table {
+  font-family: "Montserrat", sans-serif;
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  th {
+    color: #fff;
+    font-weight: 600;
+    background: #353b48;
+    padding: 1em;
+  }
+
+  tr {
+    td {
+      text-align: center;
+      padding: 0.5em 2em;
+      font-weight: 400;
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8em;
+
+        button {
+          cursor: pointer;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 600;
+          border: none;
+          padding: 0.4em 1em;
+
+          &:first-child {
+            background: #e17055;
+          }
+
+          &:last-child {
+            background: #fbc531;
+          }
+        }
+      }
+    }
+  }
+}

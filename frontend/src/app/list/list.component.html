@@ -1,0 +1,110 @@
+<div class="form">
+  <form class="form-box">
+    <input
+      [(ngModel)]="newPlayer.name"
+      type="text"
+      name="name"
+      id="name"
+      placeholder="name"
+    />
+    <input
+      [(ngModel)]="newPlayer.lastname"
+      type="text"
+      name="lastname"
+      id="lastname"
+      placeholder="lastname"
+    />
+    <input
+      [(ngModel)]="newPlayer.location"
+      type="text"
+      name="location"
+      id="location"
+      placeholder="location"
+    />
+    <input
+      [(ngModel)]="newPlayer.age"
+      type="text"
+      name="age"
+      id="age"
+      placeholder="age"
+    />
+    <input
+      [(ngModel)]="newPlayer.distance"
+      type="text"
+      name="distance"
+      id="distance"
+      placeholder="distance"
+    />
+    <button class="form-box-button" type="submit" (click)="addPlayer()">
+      add jumper
+    </button>
+  </form>
+  <div class="form-display">
+    <table>
+      <tr>
+        <th>name</th>
+        <th>last name</th>
+        <th>location</th>
+        <th>age</th>
+        <th>distance (m)</th>
+        <th></th>
+      </tr>
+      <ng-template ngFor let-player [ngForOf]="playerList">
+        <tr>
+          <td>
+            <div *ngIf="player.edit">
+              <input type="text" [(ngModel)]="fieldPlayer.name" />
+            </div>
+            <div *ngIf="!player.edit">{{ player.name }}</div>
+          </td>
+          <td>
+            <div *ngIf="player.edit">
+              <input type="text" [(ngModel)]="fieldPlayer.lastname" />
+            </div>
+            <div *ngIf="!player.edit">{{ player.lastname }}</div>
+          </td>
+          <td>
+            <div *ngIf="player.edit">
+              <input type="text" [(ngModel)]="fieldPlayer.location" />
+            </div>
+            <div *ngIf="!player.edit">{{ player.location }}</div>
+          </td>
+          <td>
+            <div *ngIf="player.edit">
+              <input type="text" [(ngModel)]="fieldPlayer.age" />
+            </div>
+            <div *ngIf="!player.edit">{{ player.age }}</div>
+          </td>
+          <td>
+            <div *ngIf="player.edit">
+              <input type="text" [(ngModel)]="fieldPlayer.distance" />
+            </div>
+            <div *ngIf="!player.edit">{{ player.distance }}</div>
+          </td>
+          <td>
+            <div *ngIf="player.edit">
+              <div class="buttons">
+                <button (click)="player.edit = false" class="cancel">
+                  cancel
+                </button>
+                <button (click)="editPlayer(player.id)" class="save">
+                  save
+                </button>
+              </div>
+            </div>
+            <div *ngIf="!player.edit">
+              <div class="buttons">
+                <button (click)="changePlayer(player)" class="edit">
+                  edit
+                </button>
+                <button (click)="deletePlayer(player.id)" class="delete">
+                  delete
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </table>
+  </div>
+</div>
