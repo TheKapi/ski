@@ -67,8 +67,14 @@ app.get("/competition", (req, res) => {
 	const sql = "SELECT * FROM competition";
 
 	db.query(sql, (error, result) => {
+		let finalCompetition = [];
 		if (error) throw error;
-		res.send(result);
+		result.forEach((competition) => {
+			const competitionSql = `SELECT * FROM user_competition WHERE id=${competition.id}`;
+			db.query(competitionSql, (err, rslt) => {
+				if (err) throw err;
+			});
+		});
 	});
 });
 

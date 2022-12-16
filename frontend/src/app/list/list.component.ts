@@ -76,6 +76,7 @@ export class ListComponent implements OnInit {
     this.playerList.forEach((e) => {
       e.edit = false;
     });
+    this.fieldPlayer = { ...item };
     item.edit = true;
   }
 }
