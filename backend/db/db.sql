@@ -2,17 +2,17 @@ CREATE DATABASE `ski`;
 
 USE `ski`;
 
-CREATE TABLE `user`(
+CREATE TABLE `user `(
     `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `name` VARCHAR(200) NOT NULL,
     `lastname` VARCHAR(300) NOT NULL,
     `location` VARCHAR(300) NOT NULL,
     `age` VARCHAR(300) NOT NULL,
     `distance` VARCHAR(300) NOT NULL,
-    `edit` BOOLEAN NOT NULL,
+    `edit` BOOLEAN NOT NULL
 );
 
-CREATE TABLE `competition`(
+CREATE TABLE `competition `(
     `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `title` VARCHAR(200) NOT NULL,
     `date` DATE NOT NULL
