@@ -66,16 +66,26 @@ app.put("/list/:id", (req, res) => {
 app.get("/competition", (req, res) => {
 	const sql = "SELECT * FROM competition";
 
-	db.query(sql, (error, result) => {
-		let finalCompetition = [];
+	db.query(sql, async (error, competitions) => {
 		if (error) throw error;
-		result.forEach((competition) => {
-			const competitionSql = `SELECT * FROM user_competition WHERE id=${competition.id}`;
-			db.query(competitionSql, (err, rslt) => {
-				if (err) throw err;
-				res.send(finalCompetition);
-			});
-		});
+
+		const final = await Promise.all(competitions.map(async (competition) => {
+			const sql = `SELECT * FROM user_competition WHERE competition_id=${competition.id}`;
+
+			const user_competition_data = await db.awaitQuery(sql);
+
+			const users = await Promise.all(user_competition_data.map(async (user_competition) => {
+				const sql = `SELECT * FROM user WHERE id=${user_competition.user_id}`;
+
+				const user_data = await db.awaitQuery(sql);
+
+				return user_data[0];
+			}));
+
+			return { ...competition, users: users };
+		}));
+
+		res.send(final);
 	});
 });
 

@@ -1,5 +1,5 @@
 const dotenv = require("dotenv");
-const mysql = require("mysql");
+const mysql = require("mysql-await");
 dotenv.config({ path: "./.env" });
 
 const db = mysql.createConnection({
